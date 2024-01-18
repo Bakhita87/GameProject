@@ -1,3 +1,5 @@
+
+import { useQuery } from "@tanstack/react-query";
 import { GameQuery } from "../App";
 import useData from "./useData";
 import { Genre } from "./useGenres";
@@ -22,7 +24,12 @@ export interface Game {
  
  
 
-const useGames = (gameQuery: GameQuery) => useData<Game>('/games',{
+const useGames = (gameQuery: GameQuery) => 
+
+// useQuery({
+//     queryKey : 
+// })
+useData<Game>('/games',{
     params:{
         genres: gameQuery.genre?.id, 
         platforms: gameQuery.platform?.id,
